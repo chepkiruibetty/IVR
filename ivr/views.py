@@ -17,3 +17,27 @@ class Calls(generics.CreateAPIView):
             return response
 
         return HttpResponse("Ok")
+
+
+class CallResponseForLanguage(generics.CreateAPIView):
+    def post(self, request, *args, **kwargs):
+        isActive = request.POST.get("isActive")
+        if isActive == '1':
+            digits = request.POST.get("dtmfDigits")
+            if digits == '1':
+                content = """<?xml version="1.0" encoding="utf-8"?><Response><Say>Thank you for selecting 
+                English</Say></Response> """
+                response = HttpResponse(content, content_type="application/xml; charset=utf-8")
+                response['Content-Length'] = len(content)
+
+                return response
+
+            elif digits == '2':
+                content = """<?xml version="1.0" encoding="utf-8"?<Response><Say>Thank you for selecting 
+                Kiswahili</Say></Response> """
+                response = HttpResponse(content, content_type="application/xml; charset=utf-8")
+                response['Content-Length'] = len(content)
+
+                return response
+
+        return HttpResponse("Ok")
