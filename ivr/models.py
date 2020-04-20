@@ -12,3 +12,11 @@ class Session(models.Model):
     def __str__(self):
         return self.caller_number
 
+
+class User(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    phone_no = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.first_name
