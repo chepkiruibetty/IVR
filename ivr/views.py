@@ -43,5 +43,5 @@ class CallResponseForLanguage(generics.CreateAPIView):
 
         return HttpResponse("Ok")
 
-class CheckAccountBalance()
+# class CheckAccountBalance()
         
