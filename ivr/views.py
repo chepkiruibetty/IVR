@@ -1,5 +1,6 @@
 from rest_framework import generics
 from django.http import HttpResponse
+from .models import UserBankDetails
 
 
 # Create your views here.
@@ -41,3 +42,6 @@ class CallResponseForLanguage(generics.CreateAPIView):
                 return response
 
         return HttpResponse("Ok")
+
+class CheckAccountBalance()
+        
